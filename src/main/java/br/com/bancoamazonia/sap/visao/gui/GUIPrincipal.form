@@ -90,7 +90,6 @@
     </Property>
   </Properties>
   <AccessibilityProperties>
-    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="SMP- Sistema de Manual de Produ&#xe7;&#xe3;o"/>
     <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
   </AccessibilityProperties>
   <SyntheticProperties>

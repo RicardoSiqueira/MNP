@@ -176,6 +176,9 @@
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Nome da Ag&#xea;ncia"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Nome do Sistema"/>
+              </AccessibilityProperties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new FormatarCampoLetras(50)"/>
               </AuxValues>
@@ -224,7 +227,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tbAgencias">
+                <Component class="javax.swing.JTable" name="tbSistemas">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -275,6 +278,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="tfCodSistema">
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="C&#xf3;digo do Sistema"/>
+              </AccessibilityProperties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new FormatarCampoNum(4)"/>
               </AuxValues>

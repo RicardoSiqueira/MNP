@@ -1,4 +1,3 @@
-
 package br.com.bancoamazonia.sap.model.domein.dao;
 
 import br.com.bancoamazonia.sap.exception.SapException;
@@ -7,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.validation.ConstraintViolationException;
 
 /**
@@ -36,7 +36,7 @@ public class SistemaJpaDAO {
         }
         return entityManager;
     }
-    
+
     @SuppressWarnings("unchecked")
     public List<Sistema> findAll() {
         return entityManager.createQuery("FROM " + Sistema.class.getSimpleName()).getResultList();
@@ -44,7 +44,12 @@ public class SistemaJpaDAO {
 
     public boolean findByConstraint(Sistema sistema) {
         int contem = 0;
-        contem = entityManager.createQuery("FROM " + Sistema.class.getSimpleName() + " where NOME =:NOME or COD_SISTEMA =:codigo ").setParameter("NOME", sistema.getNome()).setParameter("codigo", sistema.getcodSistema()).getResultList().size();
+        String qlString = "FROM " + Sistema.class.getSimpleName() + " where NOME =:nome or COD_SISTEMA =:codigo or DESCRICAO =:descricao";
+        Query query = entityManager.createQuery(qlString);
+        query.setParameter("nome", sistema.getNome());
+        query.setParameter("codigo", sistema.getcodSistema());
+        query.setParameter("descricao", sistema.getDescricao());
+        contem = query.getResultList().size();
 
         return contem > 0 ? true : false;
     }
@@ -67,7 +72,7 @@ public class SistemaJpaDAO {
             }
         }
     }
-    
+
     public void remove(Sistema sistema) {
         try {
             entityManager.getTransaction().begin();

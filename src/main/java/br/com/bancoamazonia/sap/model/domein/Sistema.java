@@ -40,8 +40,26 @@ public class Sistema implements AbstractEntity, Serializable {
     @Column(name = "NOME")
     private String nome;
     
+    @NotNull
+    @Column(name = "DESCRICAO")
+    private String descricao;
+    
     @Column(name = "ATIVO")
     private boolean ativo;
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        String oldDescricao = this.descricao;
+        this.descricao = descricao;
+        changeSupport.firePropertyChange("descricao", oldDescricao, descricao);
+    }
+    
+    
+    
+    
 
     public Long getId() {
         return id;
@@ -57,10 +75,10 @@ public class Sistema implements AbstractEntity, Serializable {
         return codSistema;
     }
 
-    public void setCodAgencia(Integer codSistema) {
+    public void setCodSistema(Integer codSistema) {
         Integer oldcodSistema = this.codSistema;
         this.codSistema = codSistema;
-        changeSupport.firePropertyChange("codAgencia", codSistema, codSistema);
+        changeSupport.firePropertyChange("codSistema", oldcodSistema , codSistema);
     }
 
     public String getNome() {
@@ -85,10 +103,10 @@ public class Sistema implements AbstractEntity, Serializable {
 
     @Override
     public String toString() {
-        return "Sistema{" + "id=" + id + ", codSistema=" + codSistema + ", nome=" + nome + ", ativo=" + ativo + '}';    }
+        return "Sistema{" + "id=" + id + ", codSistema=" + codSistema + ", nome=" + nome + ", descricao=" + descricao +", ativo=" + ativo + '}';    }
 
     public Object[] array() {
-        Object array[] = {String.valueOf(getcodSistema()), getNome(), getAtivo()};
+        Object array[] = {String.valueOf(getcodSistema()), getNome(),getDescricao(), getAtivo()};
         return array;
     }
     
@@ -98,6 +116,7 @@ public class Sistema implements AbstractEntity, Serializable {
         hash = 53 * hash + Objects.hashCode(this.id);
         hash = 53 * hash + Objects.hashCode(this.codSistema);
         hash = 53 * hash + Objects.hashCode(this.nome);
+        hash = 53 * hash + Objects.hashCode(this.descricao);
         hash = 53 * hash + Objects.hashCode(this.ativo);
         return hash;
     }
@@ -124,7 +143,9 @@ public class Sistema implements AbstractEntity, Serializable {
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
-        
+        if (!Objects.equals(this.descricao, other.descricao)) {
+            return false;
+        }
         if (!Objects.equals(this.ativo, other.ativo)) {
             return false;
         }

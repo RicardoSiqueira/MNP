@@ -5,7 +5,7 @@
  */
 package br.com.bancoamazonia.sap.visao.gui;
 
-import br.com.bancoamazonia.sap.visao.ouvinte.OuvinteDeGUIAgencia;
+import br.com.bancoamazonia.sap.visao.ouvinte.OuvinteDeGUISistema;
 import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.Toolkit;
@@ -22,8 +22,8 @@ import javax.swing.JScrollPane;
  */
 
 public class GUIPrincipal extends javax.swing.JFrame{
-private static GUISistema guiAgencia;
-private static GUIResumoArquivo guiResumoArquivo;
+private static GUISistema guiSistema;
+
     
     
     
@@ -150,12 +150,12 @@ private static GUIResumoArquivo guiResumoArquivo;
     }// </editor-fold>//GEN-END:initComponents
    
     private void itemDeMenuRelResArqPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDeMenuRelResArqPagActionPerformed
-        if(guiResumoArquivo == null){
-            guiResumoArquivo = new GUIResumoArquivo();
-        }
-        desktopPane.add(guiResumoArquivo);
-        guiResumoArquivo.setVisible(true);
-        guiResumoArquivo.setPosicao();
+       
+            
+        
+       
+     
+   
     }//GEN-LAST:event_itemDeMenuRelResArqPagActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -169,14 +169,14 @@ private static GUIResumoArquivo guiResumoArquivo;
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        if(guiAgencia == null){
-            guiAgencia = new GUISistema();
-            OuvinteDeGUIAgencia ouvinte = new OuvinteDeGUIAgencia(guiAgencia);
+        if(guiSistema == null){
+            guiSistema = new GUISistema();
+            OuvinteDeGUISistema ouvinte = new OuvinteDeGUISistema(guiSistema);
         }
-        desktopPane.add(guiAgencia);
-        guiAgencia.setVisible(true);
-        guiAgencia.setPosicao();
-        guiAgencia.limparDados();
+        desktopPane.add(guiSistema);
+        guiSistema.setVisible(true);
+        guiSistema.setPosicao();
+        guiSistema.limparDados();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
     
      public void framePrincipalAddWindowListener(WindowListener ouvinte) {

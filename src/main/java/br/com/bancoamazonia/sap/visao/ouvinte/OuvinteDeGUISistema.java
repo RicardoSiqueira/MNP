@@ -16,16 +16,16 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 14207
+ * @author 14210
  */
-public class OuvinteDeGUIAgencia {
+public class OuvinteDeGUISistema {
 
-    GUISistema guiAgencia;
+    GUISistema guiSistema;
 
-    public OuvinteDeGUIAgencia(GUISistema gui) {
-        guiAgencia = gui;
-        guiAgencia.btnSalvarAgenciaAddActionListener(new OuvinteGravarSistema());
-        guiAgencia.btnExcluirActionListener(new OuvinteExcluirSistema());
+    public OuvinteDeGUISistema(GUISistema gui) {
+        guiSistema = gui;
+        guiSistema.btnSalvarSistemaAddActionListener(new OuvinteGravarSistema());
+        guiSistema.btnExcluirActionListener(new OuvinteExcluirSistema());
     }
 
     class OuvinteGravarSistema implements ActionListener {
@@ -33,17 +33,17 @@ public class OuvinteDeGUIAgencia {
         public void actionPerformed(ActionEvent e) {
             Sistema sistema;
             try {
-                sistema = guiAgencia.getAgencia();
+                sistema = guiSistema.getSistema();
                 SistemaJpaDAO sistemaDAO = new SistemaJpaDAO();
                sistemaDAO.persist(sistema);
-                guiAgencia.showMensagem("Sistema gravado com sucesso!", false);
-                guiAgencia.limparDados();
+                guiSistema.showMensagem("Sistema gravado com sucesso!", false);
+                guiSistema.limparDados();
                 List<Sistema> lista = sistemaDAO.findAll();
-                guiAgencia.exibirAgencias(lista);
+                guiSistema.exibirSistema(lista);
                 
                 
             } catch (SapException ex) {
-                guiAgencia.showMensagem(ex.getMessage(), true);
+                guiSistema.showMensagem(ex.getMessage(), true);
             } 
             
         }
@@ -53,22 +53,23 @@ public class OuvinteDeGUIAgencia {
 
         public void actionPerformed(ActionEvent e) {
             try {
-                Sistema sistema = guiAgencia.getRemoverSistema();
+                Sistema sistema = guiSistema.getRemoverSistema();
                 StringBuffer msg = new StringBuffer("Confirma a exclusão da sistema abaixo:");
                 msg.append("\nCódigo: " + sistema.getcodSistema());
                 msg.append("\nNome: " + sistema.getNome());
+                msg.append("\nDescricao " + sistema.getDescricao());
                 String title = "Exclusão de registro";
-                int resp = guiAgencia.pedirConfirmacao(msg.toString(), title, JOptionPane.YES_NO_OPTION);
+                int resp = guiSistema.pedirConfirmacao(msg.toString(), title, JOptionPane.YES_NO_OPTION);
 
                 if (resp == JOptionPane.OK_OPTION) {
                     SistemaJpaDAO empDAO = new SistemaJpaDAO();
                     empDAO.remove(sistema);
                     List ag = empDAO.findAll();
-                    guiAgencia.exibirAgencias(ag);
+                    guiSistema.exibirSistema(ag);
                     JOptionPane.showMessageDialog(null, "Sistema excluído com sucesso!");
                 }
             } catch (SapException ex) {
-                guiAgencia.exibirMensagem(ex.getMessage(), "Mensagem de erro", true);
+                guiSistema.exibirMensagem(ex.getMessage(), "Mensagem de erro", true);
             }
         }
     }

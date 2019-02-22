@@ -46,7 +46,7 @@ public class GUISistema extends javax.swing.JInternalFrame {
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
     }
 
-    public void btnSalvarAgenciaAddActionListener(ActionListener ouvinte) {
+    public void btnSalvarSistemaAddActionListener(ActionListener ouvinte) {
         bntSalvar.addActionListener(ouvinte);
     }
 
@@ -56,7 +56,7 @@ public class GUISistema extends javax.swing.JInternalFrame {
 
     public Sistema getRemoverSistema() throws SapException {
         Sistema sistema;
-        int linhaSelecionada = tbAgencias.getSelectedRow();
+        int linhaSelecionada = tbSistemas.getSelectedRow();
         if (linhaSelecionada < 0) {
             throw new SapException("Não foi selecionado nenhum Sistema");
         }
@@ -65,14 +65,14 @@ public class GUISistema extends javax.swing.JInternalFrame {
         return sistema;
     }
 
-    public Sistema getAgencia() throws SapException {
+    public Sistema getSistema() throws SapException {
         Sistema sistema = new Sistema();
 
         if (tfCodSistema.getText().equals("")) {
             tfCodSistema.requestFocus();
             throw new SapException("Informe o código do sistema!");
         } else {
-            sistema.setCodAgencia(Integer.parseInt(tfCodSistema.getText()));
+            sistema.setCodSistema(Integer.parseInt(tfCodSistema.getText()));
         }
 
         if (tfNomeSistema.getText().equals("")) {
@@ -80,6 +80,13 @@ public class GUISistema extends javax.swing.JInternalFrame {
             throw new SapException("Informe o nome do sistema!");
         } else {
             sistema.setNome(tfNomeSistema.getText());
+        }
+        
+         if (tfDescricaoSistema.getText().equals("")) {
+            tfDescricaoSistema.requestFocus();
+            throw new SapException("Informe a descrição do Sistema!");
+        } else {
+            sistema.setDescricao(tfDescricaoSistema.getText());
         }
 
         if (jcbAtivo.isSelected()) {
@@ -106,12 +113,12 @@ public class GUISistema extends javax.swing.JInternalFrame {
         }
     }
 
-    public void exibirAgencias(List<Sistema> lista) {
+    public void exibirSistema(List<Sistema> lista) {
         this.lista = lista;
         String titulos[] = {
-            "Código do Sistema", "Nome do Sistema", "Ativo"
+            "Código do Sistema", "Nome do Sistema", "Descricao", "Ativo"
         };
-        DefaultTableModel model = (DefaultTableModel) tbAgencias.getModel();
+        DefaultTableModel model = (DefaultTableModel) tbSistemas.getModel();
         Object objts[][] = new Object[lista.size()][3];
         Iterator resultado = lista.iterator();
         int controle = 0;
@@ -151,7 +158,7 @@ public class GUISistema extends javax.swing.JInternalFrame {
         btnLimparDados = new javax.swing.JButton();
         jcbAtivo = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbAgencias = new javax.swing.JTable();
+        tbSistemas = new javax.swing.JTable();
         tfCodSistema = new FormatarCampoNum(4);
         lblNomeAgencia1 = new javax.swing.JLabel();
         tfDescricaoSistema = new FormatarCampoLetras(50);
@@ -202,9 +209,9 @@ public class GUISistema extends javax.swing.JInternalFrame {
             }
         });
 
-        tbAgencias.setBackground(new java.awt.Color(240, 240, 240));
-        tbAgencias.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        tbAgencias.setModel(new javax.swing.table.DefaultTableModel(
+        tbSistemas.setBackground(new java.awt.Color(240, 240, 240));
+        tbSistemas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tbSistemas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -215,10 +222,10 @@ public class GUISistema extends javax.swing.JInternalFrame {
                 "Código do Sistema", "Nome do Sistema", "Descrição", "Ativo"
             }
         ));
-        tbAgencias.setToolTipText("Tabela de Agências Cadastradas");
-        tbAgencias.setShowHorizontalLines(false);
-        tbAgencias.setShowVerticalLines(false);
-        jScrollPane1.setViewportView(tbAgencias);
+        tbSistemas.setToolTipText("Tabela de Agências Cadastradas");
+        tbSistemas.setShowHorizontalLines(false);
+        tbSistemas.setShowVerticalLines(false);
+        jScrollPane1.setViewportView(tbSistemas);
 
         lblNomeAgencia1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNomeAgencia1.setText("Descrição:");
@@ -284,6 +291,9 @@ public class GUISistema extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        tfNomeSistema.getAccessibleContext().setAccessibleDescription("Nome do Sistema");
+        tfCodSistema.getAccessibleContext().setAccessibleName("Código do Sistema");
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -397,7 +407,7 @@ public class GUISistema extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCodAgencia;
     private javax.swing.JLabel lblNomeAgencia;
     private javax.swing.JLabel lblNomeAgencia1;
-    private javax.swing.JTable tbAgencias;
+    private javax.swing.JTable tbSistemas;
     private javax.swing.JTextField tfCodSistema;
     private javax.swing.JTextField tfDescricaoSistema;
     private javax.swing.JTextField tfNomeSistema;
