@@ -96,33 +96,29 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="lblNomeAgencia" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="tfNomeSistema" pref="438" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="lblNomeAgencia1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
+                                      <Component id="lblNomeAgencia1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="324" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblCodAgencia" min="-2" pref="122" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="tfCodSistema" min="-2" pref="144" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jcbAtivo" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="tfDescricaoSistema" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="lblNomeAgencia" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="tfNomeSistema" min="-2" pref="748" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane1" alignment="0" pref="898" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -174,7 +170,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfNomeSistema">
               <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Nome da Ag&#xea;ncia"/>
+                <Property name="toolTipText" type="java.lang.String" value="Nome do Sistema"/>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Nome do Sistema"/>
@@ -189,7 +185,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
-                <Property name="toolTipText" type="java.lang.String" value="Salvar Ag&#xea;ncia"/>
+                <Property name="toolTipText" type="java.lang.String" value="Salvar Sistema"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntSalvarActionPerformed"/>
@@ -243,7 +239,7 @@
                         <Column editable="true" title="Ativo" type="java.lang.Object"/>
                       </Table>
                     </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Tabela de Ag&#xea;ncias Cadastradas"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Tabela de Sistemas Cadastrados"/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
@@ -278,9 +274,15 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="tfCodSistema">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="C&#xf3;digo do Sistema"/>
+              </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="C&#xf3;digo do Sistema"/>
               </AccessibilityProperties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfCodSistemaActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new FormatarCampoNum(4)"/>
               </AuxValues>
@@ -295,7 +297,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfDescricaoSistema">
               <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Nome da Ag&#xea;ncia"/>
+                <Property name="toolTipText" type="java.lang.String" value="Descri&#xe7;&#xe3;o Sistema"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new FormatarCampoLetras(50)"/>

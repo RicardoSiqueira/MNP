@@ -179,11 +179,11 @@ public class GUISistema extends javax.swing.JInternalFrame {
         lblNomeAgencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNomeAgencia.setText("Nome do Sistema:");
 
-        tfNomeSistema.setToolTipText("Nome da Agência");
+        tfNomeSistema.setToolTipText("Nome do Sistema");
 
         bntSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bntSalvar.setText("Salvar");
-        bntSalvar.setToolTipText("Salvar Agência");
+        bntSalvar.setToolTipText("Salvar Sistema");
         bntSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntSalvarActionPerformed(evt);
@@ -222,15 +222,22 @@ public class GUISistema extends javax.swing.JInternalFrame {
                 "Código do Sistema", "Nome do Sistema", "Descrição", "Ativo"
             }
         ));
-        tbSistemas.setToolTipText("Tabela de Agências Cadastradas");
+        tbSistemas.setToolTipText("Tabela de Sistemas Cadastrados");
         tbSistemas.setShowHorizontalLines(false);
         tbSistemas.setShowVerticalLines(false);
         jScrollPane1.setViewportView(tbSistemas);
 
+        tfCodSistema.setToolTipText("Código do Sistema");
+        tfCodSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCodSistemaActionPerformed(evt);
+            }
+        });
+
         lblNomeAgencia1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNomeAgencia1.setText("Descrição:");
 
-        tfDescricaoSistema.setToolTipText("Nome da Agência");
+        tfDescricaoSistema.setToolTipText("Descrição Sistema");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -248,24 +255,22 @@ public class GUISistema extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblNomeAgencia)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tfNomeSistema, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblNomeAgencia1)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(324, 324, 324))
+                                .addComponent(lblNomeAgencia1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblCodAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(tfCodSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jcbAtivo))
-                            .addComponent(tfDescricaoSistema))
+                            .addComponent(tfDescricaoSistema)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lblNomeAgencia)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfNomeSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,6 +364,10 @@ public class GUISistema extends javax.swing.JInternalFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void tfCodSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodSistemaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCodSistemaActionPerformed
 
     /**
      * @param args the command line arguments
