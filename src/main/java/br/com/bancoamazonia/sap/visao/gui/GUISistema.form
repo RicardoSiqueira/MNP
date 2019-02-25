@@ -27,7 +27,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jDesktopPane1" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="835" max="32767" attributes="0"/>
               <Component id="btnExcluir" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -65,9 +65,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -84,43 +84,55 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="tfDescricaoSistema" min="-2" pref="825" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="bntSalvar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnLimparDados" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblGestorNegocio" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblNomeAgencia" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblGestorTecnico" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAnalistaResponsavel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDescriçãoSistema" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCoordenador" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="tfCodSistema" min="-2" pref="144" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jcbAtivo" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="tflCoordenador" alignment="0" pref="339" max="32767" attributes="0"/>
+                                  <Component id="tflAnalistaResponsavel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tflGestorTecnico" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tflGestorNegocio" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tfNomeSistema" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="438" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblNomeAgencia1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblCodAgencia" min="-2" pref="122" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="tfCodSistema" min="-2" pref="144" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jcbAtivo" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="lblNomeAgencia" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="tfNomeSistema" min="-2" pref="748" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="tfDescricaoSistema" min="-2" pref="842" max="-2" attributes="0"/>
+                                  <Component id="lblCodAgencia" min="-2" pref="122" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="bntSalvar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnLimparDados" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -131,25 +143,50 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblCodAgencia" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jcbAtivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfCodSistema" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="3" attributes="0">
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              <Component id="tfCodSistema" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblNomeAgencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfNomeSistema" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfNomeSistema" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="107" max="32767" attributes="0"/>
-                      <Component id="lblNomeAgencia1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="tfDescricaoSistema" min="-2" pref="103" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblGestorNegocio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tflGestorNegocio" alignment="3" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tflGestorTecnico" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblGestorTecnico" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tflAnalistaResponsavel" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAnalistaResponsavel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblCoordenador" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="lblDescriçãoSistema" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="tflCoordenador" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="tfDescricaoSistema" min="-2" pref="119" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="bntSalvar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="btnLimparDados" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="192" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -157,17 +194,11 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblCodAgencia">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="C&#xf3;digo do Sistema:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNomeAgencia">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Nome do Sistema:"/>
               </Properties>
             </Component>
@@ -184,9 +215,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="bntSalvar">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
                 <Property name="toolTipText" type="java.lang.String" value="Cadastrar Sistema"/>
               </Properties>
@@ -196,9 +224,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnLimparDados">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Limpar"/>
                 <Property name="toolTipText" type="java.lang.String" value="Limpar Dados de Cadastro"/>
               </Properties>
@@ -208,9 +233,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jcbAtivo">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Sistema Ativo"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ativar e Desativar Ag&#xea;ncia"/>
@@ -290,21 +312,52 @@
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new FormatarCampoNum(4)"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblNomeAgencia1">
+            <Component class="javax.swing.JLabel" name="lblDescri&#xe7;&#xe3;oSistema">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfDescricaoSistema">
+            <Component class="javax.swing.JLabel" name="lblGestorNegocio">
               <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Descri&#xe7;&#xe3;o do Sistema"/>
+                <Property name="text" type="java.lang.String" value="Gestor do Neg&#xf3;cio:"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfDescricaoSistemaActionPerformed"/>
-              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tflGestorNegocio">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Gestor do Neg&#xf3;cio"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.TextArea" name="tfDescricaoSistema">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblGestorTecnico">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gestor T&#xe9;cnico:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tflGestorTecnico">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Gestor T&#xe9;cnico"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tflAnalistaResponsavel">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Analista Respons&#xe1;vel "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAnalistaResponsavel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Analista Respons&#xe1;vel:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tflCoordenador">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Coordenador"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCoordenador">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Coordenador:"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -316,6 +369,7 @@
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Excluir"/>
+        <Property name="toolTipText" type="java.lang.String" value="Excluir Sistema"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirActionPerformed"/>
