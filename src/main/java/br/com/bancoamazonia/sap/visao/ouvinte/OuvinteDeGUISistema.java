@@ -36,7 +36,7 @@ public class OuvinteDeGUISistema {
                 sistema = guiSistema.getSistema();
                 SistemaJpaDAO sistemaDAO = new SistemaJpaDAO();
                sistemaDAO.persist(sistema);
-                guiSistema.showMensagem("Sistema gravado com sucesso!", false);
+                guiSistema.showMensagem("Sistema Cadastrado com sucesso!", false);
                 guiSistema.limparDados();
                 List<Sistema> lista = sistemaDAO.findAll();
                 guiSistema.exibirSistema(lista);

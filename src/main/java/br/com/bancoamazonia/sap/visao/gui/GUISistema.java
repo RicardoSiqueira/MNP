@@ -161,7 +161,7 @@ public class GUISistema extends javax.swing.JInternalFrame {
         tbSistemas = new javax.swing.JTable();
         tfCodSistema = new FormatarCampoNum(4);
         lblNomeAgencia1 = new javax.swing.JLabel();
-        tfDescricaoSistema = new FormatarCampoLetras(50);
+        tfDescricaoSistema = new javax.swing.JTextField();
         btnExcluir = new javax.swing.JButton();
 
         setClosable(true);
@@ -182,8 +182,8 @@ public class GUISistema extends javax.swing.JInternalFrame {
         tfNomeSistema.setToolTipText("Nome do Sistema");
 
         bntSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        bntSalvar.setText("Salvar");
-        bntSalvar.setToolTipText("Salvar Sistema");
+        bntSalvar.setText("Cadastrar");
+        bntSalvar.setToolTipText("Cadastrar Sistema");
         bntSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntSalvarActionPerformed(evt);
@@ -237,40 +237,47 @@ public class GUISistema extends javax.swing.JInternalFrame {
         lblNomeAgencia1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNomeAgencia1.setText("Descrição:");
 
-        tfDescricaoSistema.setToolTipText("Descrição Sistema");
+        tfDescricaoSistema.setToolTipText("Descrição do Sistema");
+        tfDescricaoSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDescricaoSistemaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(bntSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimparDados)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(tfDescricaoSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblNomeAgencia1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblCodAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tfCodSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jcbAtivo))
-                            .addComponent(tfDescricaoSistema)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(lblNomeAgencia)
                                 .addGap(18, 18, 18)
                                 .addComponent(tfNomeSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
-            .addComponent(jScrollPane1)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(bntSalvar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLimparDados)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,16 +291,16 @@ public class GUISistema extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeAgencia)
                     .addComponent(tfNomeSistema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addComponent(lblNomeAgencia1)
+                .addGap(18, 18, 18)
+                .addComponent(tfDescricaoSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfDescricaoSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bntSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimparDados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -368,6 +375,10 @@ public class GUISistema extends javax.swing.JInternalFrame {
     private void tfCodSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodSistemaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfCodSistemaActionPerformed
+
+    private void tfDescricaoSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDescricaoSistemaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDescricaoSistemaActionPerformed
 
     /**
      * @param args the command line arguments
