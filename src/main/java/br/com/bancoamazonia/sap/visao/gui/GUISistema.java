@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.bancoamazonia.sap.visao.gui;
 
 import br.com.bancoamazonia.sap.FormatarCampoLetras;
 import br.com.bancoamazonia.sap.FormatarCampoNum;
 import br.com.bancoamazonia.sap.UpperCaseDocument;
 import br.com.bancoamazonia.sap.exception.SapException;
+import br.com.bancoamazonia.sap.model.domein.Envolvidos;
 import br.com.bancoamazonia.sap.model.domein.Sistema;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
@@ -20,85 +16,135 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author 14207
+ * @author 14210
  */
 public class GUISistema extends javax.swing.JInternalFrame {
-
+    
     private List sistemas;
     private List lista;
     FormatarCampoLetras format = new FormatarCampoLetras();
     Sistema sistema;
-
+    
     public GUISistema() {
         initComponents();
+        
         setFrameIcon(new ImageIcon(this.getClass().getResource("/imagem/iconeBasa.png")));
         tfNomeSistema.setDocument(new UpperCaseDocument());
     }
-
+    
     public void limparDados() {
         tfCodSistema.setText(null);
         tfNomeSistema.setText(null);
         tfDescricaoSistema.setText(null);
+        tflGestorNegocio.setText(null);
+        tflGestorTecnico.setText(null);
+        tflAnalistaResponsavel.setText(null);
+        tflCoordenador.setText(null);
     }
-
+    
     public void setPosicao() {
         Dimension d = this.getDesktopPane().getSize();
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
     }
-
+    
     public void btnSalvarSistemaAddActionListener(ActionListener ouvinte) {
         bntSalvar.addActionListener(ouvinte);
     }
-
+    
     public void btnExcluirActionListener(ActionListener ouvinte) {
         btnExcluir.addActionListener(ouvinte);
     }
-
+    
     public Sistema getRemoverSistema() throws SapException {
-        Sistema sistema;
+        Sistema s;
+        
         int linhaSelecionada = tbSistemas.getSelectedRow();
         if (linhaSelecionada < 0) {
             throw new SapException("Não foi selecionado nenhum Sistema");
         }
-        sistema = (Sistema) this.lista.get(linhaSelecionada);
-
-        return sistema;
+        s = (Sistema) this.lista.get(linhaSelecionada);
+        
+        return s;
     }
-
+    
+    public Envolvidos getRemoverEnvolvidos() throws SapException {
+        Envolvidos e;
+        int linhaSelecionada = tbSistemas.getSelectedRow();
+        if (linhaSelecionada < 0) {
+            throw new SapException("Não foi selecionado nenhum Sistema");
+        }
+        e = (Envolvidos) this.lista.get(linhaSelecionada);
+        
+        return e;
+    }
+    
     public Sistema getSistema() throws SapException {
-        Sistema sistema = new Sistema();
-
+        Sistema s = new Sistema();
+        
         if (tfCodSistema.getText().equals("")) {
             tfCodSistema.requestFocus();
             throw new SapException("Informe o código do sistema!");
         } else {
-            sistema.setCodSistema(Integer.parseInt(tfCodSistema.getText()));
+            s.setCodSistema(Integer.parseInt(tfCodSistema.getText()));
         }
-
+        
         if (tfNomeSistema.getText().equals("")) {
             tfNomeSistema.requestFocus();
             throw new SapException("Informe o nome do sistema!");
         } else {
-            sistema.setNome(tfNomeSistema.getText());
+            s.setNome(tfNomeSistema.getText());
         }
         
-         if (tfDescricaoSistema.getText().equals("")) {
+        if (tfDescricaoSistema.getText().equals("")) {
             tfDescricaoSistema.requestFocus();
             throw new SapException("Informe a descrição do Sistema!");
         } else {
-            sistema.setDescricao(tfDescricaoSistema.getText());
+            s.setDescricao(tfDescricaoSistema.getText());
         }
-
+        
         if (jcbAtivo.isSelected()) {
-           sistema.setAtivo(true);
+            s.setAtivo(true);
         } else {
-            sistema.setAtivo(false);
+            s.setAtivo(false);
         }
-
-        return sistema;
-
+        
+        return s;
+        
     }
-
+    
+    public Envolvidos getEnvolvidos() throws SapException {
+        Envolvidos e = new Envolvidos();
+        
+        if (tflGestorNegocio.getText().equals("")) {
+            tflGestorNegocio.requestFocus();
+            throw new SapException("Informe o Gestor do Negócio!");
+        } else {
+            e.setGestornegocio(tflGestorNegocio.getText());
+        }
+        
+        if (tflGestorTecnico.getText().equals("")) {
+            tflGestorTecnico.requestFocus();
+            throw new SapException("Informe o nome do Gestor Tecnico!");
+        } else {
+            e.setGestortecnico(tflGestorTecnico.getText());
+        }
+        
+        if (tflCoordenador.getText().equals("")) {
+            tflCoordenador.requestFocus();
+            throw new SapException("Informe o nome do Coordenador !");
+        } else {
+            e.setCoordenador(tflCoordenador.getText());
+        }
+        if (tflAnalistaResponsavel.getText().equals("")) {
+            tflAnalistaResponsavel.requestFocus();
+            throw new SapException("Informe o nome do Analista");
+        } else {
+            e.setAnalista(tflAnalistaResponsavel.getText());
+        }
+        return e;
+        
+    }
+    
     public void showMensagem(String mensagem, boolean isErro) {
         if (isErro) {
             JOptionPane.showMessageDialog(null,
@@ -112,7 +158,7 @@ public class GUISistema extends javax.swing.JInternalFrame {
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }
-
+    
     public void exibirSistema(List<Sistema> lista) {
         this.lista = lista;
         String titulos[] = {
@@ -129,7 +175,24 @@ public class GUISistema extends javax.swing.JInternalFrame {
         }
         model.setDataVector(objts, titulos);
     }
-
+    
+    public void exibirEnvolvidos(List<Envolvidos> lista) {
+        this.lista = lista;
+        String titulos[] = {
+            "Gestor do negocio", "Gestor Tecnico", "Analista", "Coordenador"
+        };
+        DefaultTableModel model = (DefaultTableModel) tbSistemas.getModel();
+        Object objts[][] = new Object[lista.size()][3];
+        Iterator resultado = lista.iterator();
+        int controle = 0;
+        while (resultado.hasNext()) {
+            Envolvidos next = (Envolvidos) resultado.next();
+            objts[controle] = next.array();
+            controle++;
+        }
+        model.setDataVector(objts, titulos);
+    }
+    
     public void exibirMensagem(String mensagem, String titulo, boolean isErro) {
         int tipo;
         if (isErro) {
@@ -139,12 +202,12 @@ public class GUISistema extends javax.swing.JInternalFrame {
         }
         JOptionPane.showMessageDialog(null, mensagem, titulo, tipo);
     }
-
+    
     public int pedirConfirmacao(String mensagem, String titulo, int tipo) {
         int resposta = JOptionPane.showConfirmDialog(null, mensagem, titulo, tipo);
         return resposta;
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -216,13 +279,13 @@ public class GUISistema extends javax.swing.JInternalFrame {
         tbSistemas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tbSistemas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código do Sistema", "Nome do Sistema", "Descrição", "Ativo"
+                "Código do Sistema", "Nome do Sistema", "Descrição", "Ativo", "Gestor do Negocio", "Gestor Tecnico", "Analista Responsavel", "Coordenador"
             }
         ));
         tbSistemas.setToolTipText("Tabela de Sistemas Cadastrados");
@@ -292,7 +355,7 @@ public class GUISistema extends javax.swing.JInternalFrame {
                             .addComponent(tflGestorTecnico)
                             .addComponent(tflGestorNegocio)
                             .addComponent(tfNomeSistema))
-                        .addContainerGap(438, Short.MAX_VALUE))
+                        .addContainerGap(557, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfDescricaoSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,12 +366,13 @@ public class GUISistema extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodAgencia)
-                    .addComponent(jcbAtivo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(tfCodSistema)))
+                        .addComponent(tfCodSistema))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblCodAgencia)
+                        .addComponent(jcbAtivo)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeAgencia)
@@ -343,7 +407,6 @@ public class GUISistema extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        tfNomeSistema.getAccessibleContext().setAccessibleDescription("Nome do Sistema");
         tfCodSistema.getAccessibleContext().setAccessibleName("Código do Sistema");
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -380,7 +443,7 @@ public class GUISistema extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jDesktopPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(835, Short.MAX_VALUE)
+                .addContainerGap(1072, Short.MAX_VALUE)
                 .addComponent(btnExcluir)
                 .addContainerGap())
         );
@@ -476,4 +539,5 @@ public class GUISistema extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tflGestorNegocio;
     private javax.swing.JTextField tflGestorTecnico;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -6,7 +6,9 @@
 package br.com.bancoamazonia.sap.visao.ouvinte;
 
 import br.com.bancoamazonia.sap.exception.SapException;
+import br.com.bancoamazonia.sap.model.domein.Envolvidos;
 import br.com.bancoamazonia.sap.model.domein.Sistema;
+import br.com.bancoamazonia.sap.model.domein.dao.EnvolvidosJpaDAO;
 import br.com.bancoamazonia.sap.model.domein.dao.SistemaJpaDAO;
 import br.com.bancoamazonia.sap.visao.gui.GUISistema;
 import java.awt.event.ActionEvent;
@@ -32,14 +34,24 @@ public class OuvinteDeGUISistema {
 
         public void actionPerformed(ActionEvent e) {
             Sistema sistema;
+//            Envolvidos envolvidos;
             try {
+//                envolvidos = guiSistema.getEnvolvidos();
+//                EnvolvidosJpaDAO envolvidosJpaDAO = new EnvolvidosJpaDAO();
+//               envolvidosJpaDAO .persist(envolvidos);
+//                guiSistema.showMensagem("Sistema Cadastrado com sucesso!", false);
+//                guiSistema.limparDados();
+//                List<Envolvidos> lista = envolvidosJpaDAO.findAll();
+//                guiSistema.exibirEnvolvidos(lista);
+                
+                
                 sistema = guiSistema.getSistema();
                 SistemaJpaDAO sistemaDAO = new SistemaJpaDAO();
                sistemaDAO.persist(sistema);
                 guiSistema.showMensagem("Sistema Cadastrado com sucesso!", false);
                 guiSistema.limparDados();
-                List<Sistema> lista = sistemaDAO.findAll();
-                guiSistema.exibirSistema(lista);
+                List<Sistema> listas = sistemaDAO.findAll();
+                guiSistema.exibirSistema(listas);
                 
                 
             } catch (SapException ex) {
@@ -47,6 +59,7 @@ public class OuvinteDeGUISistema {
             } 
             
         }
+                
     }
     
     class OuvinteExcluirSistema implements ActionListener {

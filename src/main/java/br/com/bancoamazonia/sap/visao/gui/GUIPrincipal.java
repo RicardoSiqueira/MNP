@@ -20,29 +20,24 @@ import javax.swing.JScrollPane;
  *
  * @author 14207
  */
+public class GUIPrincipal extends javax.swing.JFrame {
 
-public class GUIPrincipal extends javax.swing.JFrame{
-private static GUISistema guiSistema;
+    private static GUISistema guiSistema;
 
-    
-    
-    
-    
     JScrollPane jScrollPane;
     JPanel jPanel;
 
-           
     public GUIPrincipal() {
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);   
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         setIcon();
-    }  
-    
+    }
+
     public int pedirConfirmacao(String mensagem, String titulo, int tipo) {
         int resposta = JOptionPane.showConfirmDialog(null, mensagem, titulo, tipo);
         return resposta;
     }
-       
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -148,28 +143,24 @@ private static GUISistema guiSistema;
         setSize(new java.awt.Dimension(957, 676));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-   
+
     private void itemDeMenuRelResArqPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDeMenuRelResArqPagActionPerformed
-       
-            
-        
-       
-     
-   
+
+
     }//GEN-LAST:event_itemDeMenuRelResArqPagActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-         StringBuffer msg = new StringBuffer("Deseja realmente sair do sistema?");
+        StringBuffer msg = new StringBuffer("Deseja realmente sair do sistema?");
         String title = "SMP - Sistema de Manual de Producao";
         int resp = pedirConfirmacao(msg.toString(), title, JOptionPane.YES_NO_OPTION);
-        
+
         if (resp == JOptionPane.YES_OPTION) {
             System.exit(0);
-        }          
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        if(guiSistema == null){
+        if (guiSistema == null) {
             guiSistema = new GUISistema();
             OuvinteDeGUISistema ouvinte = new OuvinteDeGUISistema(guiSistema);
         }
@@ -178,14 +169,14 @@ private static GUISistema guiSistema;
         guiSistema.setPosicao();
         guiSistema.limparDados();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
-    
-     public void framePrincipalAddWindowListener(WindowListener ouvinte) {
+
+    public void framePrincipalAddWindowListener(WindowListener ouvinte) {
         this.addWindowListener(ouvinte);
     }
-   
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+ /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {

@@ -3,6 +3,7 @@
   <persistence-unit name="appSwingCrudUnit" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>br.com.bancoamazonia.sap.model.domein.Sistema</class>
+    <class>br.com.bancoamazonia.sap.model.domein.Envolvidos</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/sap;AUTO_SERVER=TRUE"/>
@@ -14,6 +15,7 @@
       <property name="hibernate.use_sql_comments" value="true"/>
       <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
       <property name="hibernate.connection.charSet" value="UTF-8"/>
+      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
     </properties>
   </persistence-unit>
   <persistence-unit name="sapPU" transaction-type="RESOURCE_LOCAL">
