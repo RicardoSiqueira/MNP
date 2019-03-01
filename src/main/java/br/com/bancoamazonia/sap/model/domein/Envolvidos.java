@@ -99,7 +99,7 @@ public class Envolvidos implements Serializable {
     public String toString() {
         return "Envolvidos{" + "id=" + id + ", gestornegocio=" + gestornegocio + ", gestortecnico=" + gestortecnico + ", analista" + analista +", coordenador=" + coordenador + '}';    }
     
-    public Object[] arrayEnvolvidos() {
+    public Object[] array() {
         Object array[] = {String.valueOf(getGestornegocio()), getGestortecnico(), getAnalista(), getCoordenador()};
         return array;
     }
@@ -147,10 +147,9 @@ public class Envolvidos implements Serializable {
         return true;
     }
 
-    public Object[] array() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
-}
+
 
     
 
