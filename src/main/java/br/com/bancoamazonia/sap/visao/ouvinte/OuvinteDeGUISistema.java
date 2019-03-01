@@ -34,34 +34,30 @@ public class OuvinteDeGUISistema {
 
         public void actionPerformed(ActionEvent e) {
             Sistema sistema;
-//            Envolvidos envolvidos;
+            Envolvidos envolvidos;
             try {
-//                envolvidos = guiSistema.getEnvolvidos();
-//                EnvolvidosJpaDAO envolvidosJpaDAO = new EnvolvidosJpaDAO();
-//               envolvidosJpaDAO .persist(envolvidos);
-//                guiSistema.showMensagem("Sistema Cadastrado com sucesso!", false);
-//                guiSistema.limparDados();
-//                List<Envolvidos> lista = envolvidosJpaDAO.findAll();
-//                guiSistema.exibirEnvolvidos(lista);
-                
-                
+
                 sistema = guiSistema.getSistema();
+                envolvidos = guiSistema.getEnvolvidos();
                 SistemaJpaDAO sistemaDAO = new SistemaJpaDAO();
-               sistemaDAO.persist(sistema);
+                EnvolvidosJpaDAO envolvidosJpaDAO = new EnvolvidosJpaDAO();
+                sistemaDAO.persist(sistema);
+                envolvidosJpaDAO.persist(envolvidos);
                 guiSistema.showMensagem("Sistema Cadastrado com sucesso!", false);
                 guiSistema.limparDados();
                 List<Sistema> listas = sistemaDAO.findAll();
+                List<Envolvidos> lista = envolvidosJpaDAO.findAll();
                 guiSistema.exibirSistema(listas);
-                
-                
+                guiSistema.exibirEnvolvidos(lista);
+
             } catch (SapException ex) {
                 guiSistema.showMensagem(ex.getMessage(), true);
-            } 
-            
+            }
+
         }
-                
+
     }
-    
+
     class OuvinteExcluirSistema implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
@@ -86,5 +82,5 @@ public class OuvinteDeGUISistema {
             }
         }
     }
-    
+
 }
